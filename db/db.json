@@ -13,12 +13,8 @@
     {
       "titulo": "Apreender VueX",
       "concluido": false,
-      "id": 4
-    },
-    {
-      "titulo": "Erick apreender a jogar dragon ball xenoverse 2",
-      "concluido": false,
-      "id": 5
+      "id": 4,
+      "curso": "Vue JS"
     },
     {
       "titulo": "C# cachueira",
@@ -27,13 +23,19 @@
     },
     {
       "titulo": "Nova tarefa",
-      "concluido": false,
+      "concluido": true,
       "id": 7
     },
     {
       "titulo": "Agora vai",
+      "concluido": false,
+      "id": 8,
+      "curso": "Vue JS"
+    },
+    {
+      "titulo": "erick vai fazer etec",
       "concluido": true,
-      "id": 8
+      "id": 9
     }
   ]
 }
