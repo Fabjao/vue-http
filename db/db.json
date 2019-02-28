@@ -6,11 +6,6 @@
       "concluido": true
     },
     {
-      "id": 2,
-      "titulo": "Aprender Vue",
-      "concluido": true
-    },
-    {
       "titulo": "Apreender VueX",
       "concluido": false,
       "id": 4,
@@ -28,7 +23,7 @@
     },
     {
       "titulo": "Agora vai",
-      "concluido": false,
+      "concluido": true,
       "id": 8,
       "curso": "Vue JS"
     },

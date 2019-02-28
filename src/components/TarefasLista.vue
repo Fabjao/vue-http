@@ -64,7 +64,7 @@ export default {
         response => {
           console.log("GET /tarefas", response);
           this.tarefas = response.data;
-          return 'Deu bom o request'
+          return "Deu bom o request";
         },
         error => {
           console.log("Erro capturado do then: ", error);
@@ -88,7 +88,7 @@ export default {
             error.message
           }`;
         }
-        return 'Curso VueJS'
+        return "Curso VueJS";
       })
       .then(algumParemtro => {
         console.log("Sempre executado", algumParemtro);
@@ -119,7 +119,7 @@ export default {
       axios
         .request({
           method: "post",
-         // baseURL: config.apiURL,
+          // baseURL: config.apiURL,
           url: "/tarefas",
           data: tarefa
         })
@@ -133,7 +133,7 @@ export default {
       console.log("editando tarega ", tarefa);
       axios
         //.put(`${config.apiURL}/tarefas/${tarefa.id}`, tarefa)
-         .put(`/tarefas/${tarefa.id}`, tarefa)
+        .put(`/tarefas/${tarefa.id}`, tarefa)
         .then(response => {
           console.log(`PUT /tarefa/${tarefa.id}`, response);
           const indice = this.tarefas.findIndex(t => t.id === tarefa.id);
@@ -141,17 +141,30 @@ export default {
           this.resetar();
         });
     },
-    deletarTarefa(tarefa) {
+    async deletarTarefa(tarefa) {
       const confirmar = window.confirm(
         `Deseja deletar a tarefa "${tarefa.titulo}"`
       );
       if (confirmar) {
         //axios.delete(`${config.apiURL}/tarefas/${tarefa.id}`).then(response => {
-        axios.delete(`/tarefas/${tarefa.id}`).then(response => {
+
+        /*axios.delete(`/tarefas/${tarefa.id}`).then(response => {
           console.log(`DELETE /tarefas/${tarefa.id} `, response);
           const indice = this.tarefas.findIndex(t => t.id === tarefa.id);
           this.tarefas.splice(indice, 1);
-        });
+        });*/
+
+        try {
+          const response = await axios.delete(`/tarefas/${tarefa.id}`);
+          console.log(`DELETE /tarefas/${tarefa.id} `, response);
+          const indice = this.tarefas.findIndex(t => t.id === tarefa.id);
+          this.tarefas.splice(indice, 1);
+        } catch (error) {
+          console.log("Erro ao deletar tarefa: ", error);
+        }finally{
+          console.log('Sempre executado');
+          
+        }
       }
     },
     exibirFormularioCriarTarefa(event) {
